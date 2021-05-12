@@ -30,4 +30,21 @@ import java.net.ServerSocket;
                     .andExpect(content().string("3.141592653589793"));
         }
 
+        @Test
+        public void testQueryParam() throws Exception {
+            this.mvc.perform(get("/vehicles?year=1987&doors=2"))
+                    .andExpect(status().isOk())
+                    .andExpect(content().string("Vehicle year is 1987 and doors are 2"));
+        }
+
+       /* @Test
+        public void testQueryVariables() throws Exception {
+            RequestBuilder request = MockMvcRequestBuilders.get("/greetings/{first=Madhavi}/last=Yerukala");
+
+            this.mvc.perform(request)
+                    .andExpect(status().isOk())
+                    .andExpect(content().string("Greetings Madhavi Yerukala"));
+        }*/
+
+
     }
