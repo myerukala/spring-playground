@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,9 +18,9 @@ public class EndpointsController {
         return "Vehicle year is" + " " + year + " and doors are" + " " + doors;
     }
 
-   /* @GetMapping("/greetings/{first}/{last}")
-    public String getQueryVariables(@RequestParam String first, @RequestParam String last) {
+    @GetMapping("/greetings/first/{first}/last/{last}")
+    public String getQueryVariables(@PathVariable String first, @PathVariable String last) {
         return "Greetings" + " " + first + " " + last;
-    }*/
+    }
 
 }

@@ -37,14 +37,14 @@ import java.net.ServerSocket;
                     .andExpect(content().string("Vehicle year is 1987 and doors are 2"));
         }
 
-       /* @Test
+        @Test
         public void testQueryVariables() throws Exception {
-            RequestBuilder request = MockMvcRequestBuilders.get("/greetings/{first=Madhavi}/last=Yerukala");
+            RequestBuilder request = MockMvcRequestBuilders.get("/greetings/first/Madhavi/last/Yerukala");
 
             this.mvc.perform(request)
                     .andExpect(status().isOk())
                     .andExpect(content().string("Greetings Madhavi Yerukala"));
-        }*/
+        }
 
 
     }

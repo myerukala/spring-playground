@@ -3,11 +3,13 @@ package com.example.demo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -46,4 +48,17 @@ public class MathServiceTest {
                     .andExpect(content().string("30 / 5 = 6"));
         }
 
+
+    @Test
+    public void testSum() throws Exception {
+        mvc.perform(post("/math/sum")
+                .accept(MediaType.TEXT_PLAIN)
+                .param("n","20")
+                .param("n","30")
+                .param("n","40"))
+                .andExpect(status().isOk())
+                .andExpect(content().string(" 20 + 30 + 40 = 90"));
+
     }
+
+}
